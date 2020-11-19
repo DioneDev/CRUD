@@ -17,25 +17,25 @@ const sql=mysql.createPool({
 // Codigo necessário antes de colocar bd online(heroku):
 //sql.query("use crud"); // Aqui estou dizendo para o MySQL que quero usar o banco de dados crud (criado no terminal MySQL)
 
-
-// Config Template engine
-app.engine("handlebars",  handlebars({defaultLayout:'main'}));
-app.set('view engine', 'handlebars');
-
-
-// Routes and Templates
-app.get("/",function(req,res){
-	//res.send("Essa é minha pagina!");
-	//res.sendFile(__dirname+"/index.html");
-	//console.log(req.params.id);
-	res.render('index');
-});
+let port=process.env.PORT || 3000;
 
 // Link para importar os arquivos externos JS e CSS. 
 app.use('/css', express.static('css'));
 app.use('/js', express.static('js'));
 app.use('/img', express.static('img'));
 
+// Config Template engine
+app.engine("handlebars",  handlebars({defaultLayout:'main'}));
+app.set('view engine', 'handlebars');
+
+// Routes and Templates
+app.get("/",function(req,res){
+	//res.send("Essa é minha pagina!");
+	//res.sendFile(__dirname+"/index.html");
+	//console.log(req.params.id);
+	res.send('oiiii');
+});
+/*
 // Route insert
 app.get("/insert", function(req,res){
 	res.render("insert");
@@ -79,8 +79,8 @@ app.get("/delete/:id", function(req,res){
 	sql.query("delete from user where id=?",[req.params.id]);
 	res.render('delete');
 });
-
+*/
 // Start server
-app.listen(3000, function(req, res){
+app.listen(port, function(req, res){
   console.log('Servidor esta rodando!');
 });
