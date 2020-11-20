@@ -33,9 +33,9 @@ app.get("/",function(req,res){
 	//res.send("Essa é minha pagina!");
 	//res.sendFile(__dirname+"/index.html");
 	//console.log(req.params.id);
-	res.send('oiiii');
+	res.send('index');
 });
-/*
+
 // Route insert
 app.get("/insert", function(req,res){
 	res.render("insert");
@@ -79,7 +79,7 @@ app.get("/delete/:id", function(req,res){
 	sql.query("delete from user where id=?",[req.params.id]);
 	res.render('delete');
 });
-*/
+
 // Start server
 app.listen(port, function(req, res){
   console.log('Servidor esta rodando!');
